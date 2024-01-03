@@ -80,9 +80,11 @@ function App() {
     changes: null,
     changesValue: "",
     fuel: null,
-    fuelValue1: "",
+    fuelValue1: 0,
     fuelValue2: 0,
   });
+  const [values, setValue] = React.useState(0);
+  const [arbol, setArbol] = React.useState(0);
 
   const titles = [
     "Cultivos predominantes",
@@ -95,6 +97,12 @@ function App() {
   const handleChange = (event) => {
     setInfo({ ...info, [event.target.name]: event.target.value });
   };
+
+  React.useEffect(() => {
+    const total = info.area * 1.05 + info.fuelValue1 * info.fuelValue2;
+    setValue(total);
+    setArbol(Math.round(total / 15));
+  }, [info]);
 
   return (
     <div className="body">
@@ -319,7 +327,7 @@ function App() {
               <div class="opciones">
                 <div>
                   <p class="textopregunta">
-                    ¿Cuál es el area que tienes sembrada? (aprox. en m2)
+                    ¿Cuál es el area que tienes sembrada? (aprox. en hectáreas)
                   </p>
                 </div>
                 <div class="slidecontainer">
@@ -457,19 +465,19 @@ function App() {
                         >
                           <FormControlLabel
                             theme={theme}
-                            value="gasolina"
+                            value={2.31}
                             control={<Radio />}
                             label="Gasolina"
                           />
                           <FormControlLabel
                             theme={theme}
-                            value="diesel"
+                            value={2.68}
                             control={<Radio />}
                             label="Diesel"
                           />
                           <FormControlLabel
                             theme={theme}
-                            value="gas natural"
+                            value={2.03}
                             control={<Radio />}
                             label="Gas Natural"
                           />
@@ -478,7 +486,7 @@ function App() {
                     </div>
                   </>
                 )}
-                {info.fuelValue1 && (
+                {info.fuelValue1 !== 0 && (
                   <div class="slidecontainer">
                     <div>
                       <p class="textopregunta">
@@ -531,10 +539,10 @@ function App() {
                 <div class="opciones">
                   <div class="slidecontainer2visible">
                     <div>
-                      <p class="numero">2.3</p>
+                      <p class="numero">{values}</p>
                     </div>
                     <div class="unidades">
-                      <p>ton CO2</p>
+                      <p>kg CO2</p>
                     </div>
                     <div class="texto">
                       Segun los datos ingresados, esta es la cantidad de
@@ -543,7 +551,7 @@ function App() {
                   </div>
                   <div class="compensación">
                     <div>
-                      <p class="numero">7</p>
+                      <p class="numero">{arbol}</p>
                     </div>
                     <div class="unidades">
                       <div class="unidades">
