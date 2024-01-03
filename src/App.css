@@ -4,7 +4,7 @@
 }
 
 .body {
-  background-color: #5158bb;
+  background-color: #89b37f;
   color: white;
 }
 
@@ -79,10 +79,10 @@ h1 {
   -moz-border-radius: 8px;
   -webkit-border-radius: 8px;
   border-radius: 40px;
-  border: 5px solid rgb(50, 64, 122);
+  border: 5px solid rgb(241, 185, 67);
   cursor: pointer;
   color: white;
-  background-color: rgb(50, 64, 122);
+  background-color: rgb(0, 85, 139);
   font-size: 20px;
   padding: 13px 32px;
   text-decoration: none;
@@ -231,7 +231,7 @@ h1 {
   white-space: nowrap;
   height: 100%;
   border-radius: 0px;
-  background-color: #4caf50;
+  background-color: #f1b943;
   /* box-shadow: 2px 2px 12px 0 rgba(255,0,86,0.12); */
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -248,16 +248,16 @@ h1 {
   color: #fff;
   font-weight: 600;
   width: 100%;
-  border: 2px solid #4caf50;
+  border: 2px solid #f1b943;
   cursor: pointer;
   outline: none;
 }
 
 .prev {
-  color: #4caf50;
+  color: #f1b943;
   background-color: white;
   font-weight: 400;
-  border-color: #4caf50;
+  border-color: #f1b943;
   border-radius: 30px 0 0 30px;
 }
 
